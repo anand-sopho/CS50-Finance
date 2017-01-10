@@ -36,7 +36,7 @@
         $history = CS50::query("SELECT * FROM History WHERE id = ?", $_SESSION["id"]);
         $history = CS50::query("INSERT INTO History (id, sell_symbol, sell_share, price) VALUES(?, ?,?, ?)", $_SESSION["id"], strtoupper($_POST["symbol"]),  $_POST["shares"], (($stock["price"])*($_POST["shares"])));
         
-        CS50::query("DELETE FROM portfolio WHERE id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
+        //CS50::query("DELETE FROM portfolio WHERE id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
         
         render ("sell_final.php", ["symbol" => $stock ["symbol"],"shares" => $_POST["shares"], ]);        
                     
